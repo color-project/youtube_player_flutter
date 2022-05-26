@@ -17,7 +17,7 @@ class YoutubeValueBuilder extends StatefulWidget {
   final YoutubePlayerController? controller;
 
   /// Build strategy fot the widget.
-  final Widget Function(BuildContext, YoutubePlayerValue) builder;
+  final Widget Function(BuildContext context, YoutubePlayerValue value) builder;
 
   /// [buildWhen] will be invoked on each [controller] `value` change.
   /// [buildWhen] takes the previous `value` and current `state` and must
@@ -25,7 +25,8 @@ class YoutubeValueBuilder extends StatefulWidget {
   /// will be invoked.
   ///
   /// [buildWhen] is optional and if omitted, it will default to `true`.
-  final bool Function(YoutubePlayerValue, YoutubePlayerValue)? buildWhen;
+  final bool Function(YoutubePlayerValue prev, YoutubePlayerValue curr)?
+      buildWhen;
 
   /// Creates a new [YoutubeValueBuilder] that builds itself based on the latest
   /// snapshot of interaction with the specified [controller] and whose build

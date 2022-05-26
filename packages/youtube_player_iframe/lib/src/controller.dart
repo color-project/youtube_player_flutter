@@ -240,9 +240,8 @@ class YoutubePlayerController {
   /// if the seconds parameter specifies a time outside of the currently buffered video data.
   ///
   /// Default allowSeekAhead = true
-  void seekTo(Duration position, {bool allowSeekAhead = true}) {
+  Future<void> seekTo(Duration position, {bool allowSeekAhead = true}) async {
     invokeJavascript('seekTo(${position.inSeconds},$allowSeekAhead)');
-    play();
     add(_value.copyWith(position: position));
   }
 

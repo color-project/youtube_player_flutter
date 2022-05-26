@@ -22,6 +22,7 @@ export 'src/helpers/youtube_value_builder.dart';
 export 'src/helpers/youtube_value_provider.dart';
 export 'src/meta_data.dart';
 export 'src/player_params.dart';
+export 'src/player_value.dart';
 
 /// A widget to play or stream Youtube Videos.
 class YoutubePlayerIFrame extends StatelessWidget {

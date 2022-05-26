@@ -178,6 +178,10 @@ class _MobileYoutubePlayerState extends State<RawYoutubePlayer>
           _isPlayerReady = true;
           if (_onLoadStopCalled) {
             _value = _value.copyWith(isReady: true);
+            if (controller.params.autoPlay) {
+              controller.play();
+            }
+
             controller.add(_value);
           }
         },
@@ -252,10 +256,10 @@ class _MobileYoutubePlayerState extends State<RawYoutubePlayer>
         handlerName: 'VideoTime',
         callback: (args) {
           final position = args.first * 1000;
-          final num buffered = args.last;
+          final num? buffered = args.last;
           _value = _value.copyWith(
             position: Duration(milliseconds: position.floor()),
-            buffered: buffered.toDouble(),
+            buffered: buffered?.toDouble(),
           );
           controller.add(_value);
         },
